@@ -1,0 +1,54 @@
+
+services:
+  # CPU 版本服务
+  torch-rechub-cpu:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: torch-rechub-cpu
+    container_name: torch-rechub-cpu
+    volumes:
+      - ./workspace:/workspace
+      - ./data:/data
+    ports:
+      - "8888:8888"
+    environment:
+      - PYTHONUNBUFFERED=1
+    command: >
+      jupyter notebook
+      --ip=0.0.0.0
+      --port=8888
+      --no-browser
+      --allow-root
+      --NotebookApp.token=''
+      --NotebookApp.password=''
+
+  # # GPU 版本服务 (需要 NVIDIA Docker Runtime)
+  # torch-rechub-gpu:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.gpu
+  #   container_name: torch-rechub-gpu
+  #   volumes:
+  #     - ./workspace:/workspace
+  #     - ./data:/data
+  #   ports:
+  #     - "8889:8888"
+  #   environment:
+  #     - PYTHONUNBUFFERED=1
+  #     - NVIDIA_VISIBLE_DEVICES=all
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         devices:
+  #           - driver: nvidia
+  #             count: all
+  #             capabilities: [gpu]
+  #   command: >
+  #     jupyter notebook
+  #     --ip=0.0.0.0
+  #     --port=8888
+  #     --no-browser
+  #     --allow-root
+  #     --NotebookApp.token=''
+  #     --NotebookApp.password=''
