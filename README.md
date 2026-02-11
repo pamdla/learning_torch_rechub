@@ -1,10 +1,15 @@
-# Torch-RecHub 学习项目
+> 声明：本仓库为Datawhale学习小组打卡所用，记录学习进度、问题、心得等。
+> 
+> 也欢迎star、fork等，谢谢关注。
+> 
+
+# Torch-RecHub的个人学习项目
 
 基于 [Datawhale Torch-RecHub](https://datawhalechina.github.io/torch-rechub/) 的推荐系统算法学习仓库。
 
 ## 项目简介
 
-本项目用于系统学习推荐系统算法，基于 Torch-RecHub 框架进行实践。Torch-RecHub 是一个用于推荐系统的 PyTorch 库，支持 CTR 预估、召回、排序等多种推荐任务。
+本项目用于系统学习推荐系统算法，基于Torch-RecHub框架进行实践。Torch-RecHub是一个用于推荐系统的PyTorch库，支持CTR预估、召回、排序等多种推荐任务。
 
 **官方资源:**
 - 文档: https://datawhalechina.github.io/torch-rechub/
@@ -13,11 +18,15 @@
 
 ## 学习目标
 
+下面是官方Datawhale建议的[学习任务清单](./assets/tasks.png)
+
+可以拆分成如下部分，逐个完成：
+
 - [ ] 掌握推荐系统基础概念
-- [ ] 学习 CTR 预估模型 (DeepFM, Wide&Deep, xDeepFM 等)
-- [ ] 学习召回模型 (DSSM, YouTubeDNN, MIND 等)
+- [ ] 学习CTR预估模型(DeepFM,Wide&Deep,xDeepFM等)
+- [ ] 学习召回模型 (DSSM,YouTubeDNN,MIND等)
 - [ ] 学习排序模型
-- [ ] 掌握多任务学习 (MMoE, PLE, ESMM 等)
+- [ ] 掌握多任务学习 (MMoE,PLE,ESMM等)
 - [ ] 实践完整推荐系统流程
 
 ## 快速开始
