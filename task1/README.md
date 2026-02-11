@@ -17,7 +17,7 @@
 基于官方安装指南，我构建了完整的Docker化学习环境：
 
 - **Dockerfile**: 基于`Python 3.12-slim`镜像，安装了 PyTorch (CPU 版本)、torch-rechub稳定版及常用数据科学依赖（NumPy、Pandas、Scikit-learn、Jupyter等）
-- **docker-compose.yml**: 配置了服务编排，将本地 workspace 和 data 目录挂载到容器中，暴露 8888 端口供 Jupyter Notebook 使用
+- **docker-compose.yml**: 配置了服务编排，将本地 workspace 和 data 目录挂载到容器中，暴露8899端口供 Jupyter Notebook 使用
 - **.dockerignore**: 排除了不必要的文件（如 .git、__pycache__、虚拟环境等），确保镜像构建高效
 
 ### 2. 环境验证

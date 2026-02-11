@@ -11,13 +11,13 @@ services:
       - ./workspace:/workspace
       - ./data:/data
     ports:
-      - "8888:8888"
+      - "8899:8899"
     environment:
       - PYTHONUNBUFFERED=1
     command: >
       jupyter notebook
       --ip=0.0.0.0
-      --port=8888
+      --port=8899
       --no-browser
       --allow-root
       --NotebookApp.token=''
@@ -33,7 +33,7 @@ services:
   #     - ./workspace:/workspace
   #     - ./data:/data
   #   ports:
-  #     - "8889:8888"
+  #     - "8889:8899"
   #   environment:
   #     - PYTHONUNBUFFERED=1
   #     - NVIDIA_VISIBLE_DEVICES=all
@@ -47,7 +47,7 @@ services:
   #   command: >
   #     jupyter notebook
   #     --ip=0.0.0.0
-  #     --port=8888
+  #     --port=8899
   #     --no-browser
   #     --allow-root
   #     --NotebookApp.token=''

@@ -37,7 +37,7 @@ RUN pip install --no-cache-dir \
 RUN python -c "import torch_rechub; print(f'Torch-RecHub version: {torch_rechub.__version__}')"
 
 # 暴露 Jupyter 端口
-EXPOSE 8888
+EXPOSE 8899
 
 # 默认命令
-CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root", "--NotebookApp.token=''"]
+CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--port=8899", "--no-browser", "--allow-root", "--NotebookApp.token=''"]
