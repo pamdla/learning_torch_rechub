@@ -33,6 +33,10 @@ RUN pip install --no-cache-dir \
     matplotlib \
     seaborn
 
+RUN pip install --no-cache-dir \
+    --index-url https://mirrors.aliyun.com/pypi/simple/ \
+    onnx onnxruntime
+
 # 验证安装
 RUN python -c "import torch_rechub; print(f'Torch-RecHub version: {torch_rechub.__version__}')"
 
