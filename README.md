@@ -22,7 +22,7 @@
 
 可以拆分成如下部分，逐个完成：
 
-- [ ] 掌握推荐系统基础概念
+- [x] 掌握推荐系统基础概念
 - [ ] 学习CTR预估模型(DeepFM,Wide&Deep,xDeepFM等)
 - [ ] 学习召回模型 (DSSM,YouTubeDNN,MIND等)
 - [ ] 学习排序模型
@@ -76,9 +76,18 @@ learning_torch_rechub/
 │   ├── 📁 src/            # Python 源码
 │   └── 📄 README.md       # 个人学习笔记
 │
+├── 📁 assets/             # 资源物料目录
+│   └── 📄 tasks.png       # 本课程表
+│
 ├── 📁 data/               # 数据集目录
 │   ├── 📁 raw/            # 原始数据
 │   └── 📁 processed/      # 处理后数据
+│
+├── 📁 task1/              # 各任务目录
+│   └── 📄 README.md       # 本任务学习笔记
+├── 📁 task2/              # 各任务目录
+│   ├── 📄 Day2-RecallSys.ipynb  # 代码笔记本
+│   └── 📄 README.md       # 本任务学习笔记
 │
 ├── 📄 Dockerfile          # CPU 版本镜像
 ├── 📄 Dockerfile.gpu      # GPU 版本镜像
@@ -90,38 +99,38 @@ learning_torch_rechub/
 
 ## 学习路线
 
-### 阶段一: 环境搭建与基础 (1-2 天)
+### 阶段〇: 环境搭建与基础 (1天)
 
 1. 搭建 Docker 环境
 2. 熟悉 Torch-RecHub API
 3. 跑通第一个示例
 
-### 阶段二: CTR 预估 (1-2 周)
+### 阶段一: CTR 预估 (1-2 周)
 
 - [ ] LR (逻辑回归)
 - [ ] FM (因子分解机)
-- [ ] DeepFM
+- [x] DeepFM
 - [ ] Wide & Deep
 - [ ] DCN (Deep Cross Network)
 - [ ] xDeepFM
 - [ ] AutoInt
 
-### 阶段三: 召回模型 (1-2 周)
+### 阶段二: 召回模型 (1-2 周)
 
-- [ ] DSSM (双塔模型)
+- [x] DSSM (双塔模型)
 - [ ] YouTubeDNN
 - [ ] MIND (多兴趣网络)
 - [ ] SINE
 - [ ] SDM
 
-### 阶段四: 多任务学习 (1 周)
+### 阶段三: 多任务学习 (1 周)
 
 - [ ] Shared Bottom
 - [ ] MMoE (多门混合专家)
 - [ ] PLE (渐进式分层提取)
 - [ ] ESMM (多任务样本加权)
 
-### 阶段五: 项目实战 (2 周)
+### 阶段四: 项目实战 (2 周)
 
 - [ ] 完整推荐系统流程
 - [ ] 特征工程实践
@@ -139,7 +148,7 @@ learning_torch_rechub/
 
 数据集下载:
 ```bash
-# 创建数据目录
+# 创建数据目录（可参考）
 mkdir -p data/criteo data/movielens
 
 # 在 Jupyter 中下载数据
