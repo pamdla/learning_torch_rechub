@@ -23,9 +23,9 @@
 可以拆分成如下部分，逐个完成：
 
 - [x] 掌握推荐系统基础概念
-- [ ] 学习CTR预估模型(DeepFM,Wide&Deep,xDeepFM等)
-- [ ] 学习召回模型 (DSSM,YouTubeDNN,MIND等)
-- [ ] 学习排序模型
+- [x] 学习CTR预估模型(DeepFM,Wide&Deep,xDeepFM等)
+- [x] 学习召回模型 (DSSM,YouTubeDNN,MIND等)
+- [x] 学习排序模型
 - [ ] 掌握多任务学习 (MMoE,PLE,ESMM等)
 - [ ] 实践完整推荐系统流程
 
@@ -88,6 +88,9 @@ learning_torch_rechub/
 ├── 📁 task2/              # 各任务目录
 │   ├── 📄 Day2-RecallSys.ipynb  # 代码笔记本
 │   └── 📄 README.md       # 本任务学习笔记
+├── 📁 task3/              # 各任务目录
+│   ├── 📄 Day3-ranking-model.ipynb  # 代码笔记本
+│   └── 📄 README.md       # 本任务学习笔记
 │
 ├── 📄 Dockerfile          # CPU 版本镜像
 ├── 📄 Dockerfile.gpu      # GPU 版本镜像
@@ -110,7 +113,7 @@ learning_torch_rechub/
 - [ ] LR (逻辑回归)
 - [ ] FM (因子分解机)
 - [x] DeepFM
-- [ ] Wide & Deep
+- [x] Wide & Deep
 - [ ] DCN (Deep Cross Network)
 - [ ] xDeepFM
 - [ ] AutoInt
