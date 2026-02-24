@@ -26,7 +26,7 @@
 - [x] 学习CTR预估模型(DeepFM,Wide&Deep,xDeepFM等)
 - [x] 学习召回模型 (DSSM,YouTubeDNN,MIND等)
 - [x] 学习排序模型
-- [ ] 掌握多任务学习 (MMoE,PLE,ESMM等)
+- [x] 掌握多任务学习 (MMoE,PLE,ESMM等)
 - [ ] 实践完整推荐系统流程
 
 ## 快速开始
@@ -91,6 +91,10 @@ learning_torch_rechub/
 ├── 📁 task3/              # 各任务目录
 │   ├── 📄 Day3-ranking-model.ipynb  # 代码笔记本
 │   └── 📄 README.md       # 本任务学习笔记
+├── 📁 task4/              # 多任务学习 (MMoE)
+│   ├── 📄 demo.py        # MMoE多任务学习demo
+│   ├── 📄 README.md       # 本任务学习笔记
+│   └── 📄 CHANGELOG.md   # 版本变更记录
 │
 ├── 📄 Dockerfile          # CPU 版本镜像
 ├── 📄 Dockerfile.gpu      # GPU 版本镜像
@@ -129,7 +133,7 @@ learning_torch_rechub/
 ### 阶段三: 多任务学习 (1 周)
 
 - [ ] Shared Bottom
-- [ ] MMoE (多门混合专家)
+- [x] MMoE (多门混合专家)
 - [ ] PLE (渐进式分层提取)
 - [ ] ESMM (多任务样本加权)
 
