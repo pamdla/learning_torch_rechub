@@ -17,15 +17,33 @@ common_features = [
 ]
 
 # 2. 准备数据
+if os.path.exists("sample_data.pkl"):
+    os.remove("sample_data.pkl")
 if not os.path.exists("sample_data.pkl"):
-    n_samples = 1000
+    n_samples = 10000
+    user_ids = np.random.randint(0, 10000, n_samples)
+    cities = np.random.randint(0, 10, n_samples)
+    ages = np.random.uniform(18, 60, n_samples)
+    incomes = np.random.uniform(1000, 100000, n_samples)
+
     X = {
-        "user_id": np.random.randint(0, 10000, n_samples),
-        "city": np.random.randint(0, 10, n_samples),
-        "age": np.random.uniform(18, 60, n_samples),
-        "income": np.random.uniform(1000, 100000, n_samples),
+        "user_id": user_ids,
+        "city": cities,
+        "age": ages,
+        "income": incomes,
     }
-    y = np.random.randint(0, 2, (n_samples, 2))
+
+    # Task1: CTR 受age和income影响
+    logit1 = -2 + 0.05 * (ages - 30) + 0.00003 * (incomes - 30000)
+    prob1 = 1 / (1 + np.exp(-logit1))
+    y_task1 = (np.random.random(n_samples) < prob1).astype(int)
+
+    # Task2: CVR 受city和age影响 (增强信号)
+    logit2 = -2 + 0.5 * (cities - 5) + 0.15 * (ages - 40)
+    prob2 = 1 / (1 + np.exp(-logit2))
+    y_task2 = (np.random.random(n_samples) < prob2).astype(int)
+
+    y = np.column_stack([y_task1, y_task2])
     joblib.dump([X, y], "sample_data.pkl")
 else:
     X, y = joblib.load("sample_data.pkl")
@@ -34,18 +52,18 @@ else:
 # 3. 创建数据生成器
 dg = DataGenerator(X, y)
 train_dl, val_dl, test_dl = dg.generate_dataloader(
-    split_ratio=[0.7, 0.1], batch_size=256
+    split_ratio=[0.7, 0.1], batch_size=128
 )
 
 # 4. 创建模型
 model = MMOE(
     features=common_features,
     task_types=["classification", "classification"],
-    n_expert=8,
+    n_expert=16,
     expert_params={"dims": [256, 128], "dropout": 0.2, "activation": "relu"},
     tower_params_list=[
-        {"dims": [64, 32], "dropout": 0.2, "activation": "relu"},
-        {"dims": [64, 32], "dropout": 0.2, "activation": "relu"},
+        {"dims": [2 * 64, 2 * 32], "dropout": 0.2, "activation": "relu"},
+        {"dims": [2 * 64, 2 * 32], "dropout": 0.2, "activation": "relu"},
     ],
 )
 
@@ -55,7 +73,7 @@ trainer = MTLTrainer(
     task_types=["classification", "classification"],
     optimizer_params={"lr": 0.001, "weight_decay": 0.0001},
     adaptive_params={"method": "uwl"},
-    n_epoch=50,
+    n_epoch=200,
     earlystop_patience=10,
     device="cpu",
 )

@@ -2,6 +2,16 @@
 
 All notable changes to this task will be documented in this file.
 
+## [1.1.0] - 2026-02-24
+
+### Updated
+- 数据生成：使用sigmoid函数生成有意义的标签（Task1: age+income, Task2: city+age）
+- Task2信号增强：city系数0.5, age系数0.15
+- 模型参数：n_expert=16, expert_dims=[256,128], tower_dims=[128,64], lr=0.001, n_epoch=200
+
+### Fixed
+- AUC从~0.5提升至0.72/0.80
+
 ## [1.0.0] - 2026-02-24
 
 ### Added
